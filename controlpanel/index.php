@@ -10,9 +10,10 @@
     <meta name="author" content="">
 
     <title>Shop Homepage - Control Panel</title>
-
+    
     <!-- Bootstrap Core CSS -->
     <link href="../assets/css/bootstrap.min.css" rel="stylesheet">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/css/toastr.min.css" rel="stylesheet">
 
     <!-- Custom CSS -->
     <link href="../assets/css/shop-homepage.css" rel="stylesheet">
@@ -107,9 +108,81 @@
             </div>
         </div>
         <div>
-            <button type="button" class="btn btn-success">Incluir Novo Item</button>
+            <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">Incluir Novo Item</button>
         </div>
     </div>
+    <!-- Create Item Modal -->
+        <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Criar Item</h4>
+              </div>
+
+              <div class="modal-body">
+                    <form data-toggle="validator" action="api/create.php" method="POST">
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Nome</label>
+                            <input type="text" name="nome" class="form-control" data-error="Por favor insira um Nome" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Descrição:</label>
+                            <textarea name="descricao" class="form-control"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Código:</label>
+                            <input type="text" name="codigo" class="form-control" data-error="Por favor insira um Código" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Preço Compra:</label>
+                            <input type="text" name="preco_compra" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Preço Venda:</label>
+                            <input type="text" name="preco_venda" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Quantidade:</label>
+                            <input type="text" name="quantidade" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Unidade:</label>
+                            <input type="text" name="unidade" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="title">Data de validade:</label>
+                            <input type="text" name="data_de_validade" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn crud-submit btn-success">Cadastrar</button>
+                        </div>
+
+                    </form>
+
+              </div>
+            </div>
+
+          </div>
+        </div>
+    <!-- End Modal -->
     <!-- /.container -->
 
     <div class="container">
@@ -131,9 +204,17 @@
     <!-- jQuery -->
     <script src="../assets/js/jquery.js"></script>
 
+    <script type="text/javascript">
+        var host = location.host
+        var path = location.pathname
+        var url = host + path;
+    </script>
+    <!-- Ajax -->
+    <script src="../assets/js/item_ajax.js"></script>
+
     <!-- Bootstrap Core JavaScript -->
     <script src="../assets/js/bootstrap.min.js"></script>
-
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
 </body>
 
 </html>
