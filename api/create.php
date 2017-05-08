@@ -13,7 +13,7 @@ require 'db_config.php';
                                    validade) 
             VALUES ('".$post['nome']."','
                      ".$post['descricao']."','
-                     ".$post['codigo']."','
+                     ".$post['cod']."','
                      ".$post['preco_compra']."','
                      ".$post['preco_venda']."','
                      ".$post['quantidade']."','
@@ -24,5 +24,7 @@ require 'db_config.php';
   $sql = "SELECT * FROM tbl_produtos Order by id desc LIMIT 1"; 
   $result = $mysqli->query($sql);
   $data = $result->fetch_assoc();
+
+  echo json_encode($data);
 
 ?>

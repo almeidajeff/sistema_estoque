@@ -163,7 +163,7 @@
 
                         <div class="form-group">
                             <label class="control-label" for="title">Código:</label>
-                            <input type="text" name="codigo" class="form-control" data-error="Por favor insira um Código" required />
+                            <input type="text" name="cod" class="form-control" data-error="Por favor insira um Código" required />
                             <div class="help-block with-errors"></div>
                         </div>
 
@@ -186,14 +186,14 @@
                         </div>
 
                         <div class="form-group">
-                            <label class="control-label" for="title">Unidade:</label>
-                            <input type="text" name="unidade" class="form-control" />
+                            <label class="control-label" for="title">Unidade de medida:</label>
+                            <input type="text" name="unidade_medida" class="form-control" />
                             <div class="help-block with-errors"></div>
                         </div>
 
                         <div class="form-group">
                             <label class="control-label" for="title">Data de validade:</label>
-                            <input type="text" name="data_de_validade" class="form-control" />
+                            <input type="text" name="data_validade" class="form-control" />
                             <div class="help-block with-errors"></div>
                         </div>
 
