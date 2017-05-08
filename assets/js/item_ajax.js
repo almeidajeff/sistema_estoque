@@ -92,7 +92,7 @@ manageData();
             dataType:'json',
             type:'POST',
             url: url + 'api/delete.php',
-            data:{id:id}
+            data:{id: id}
         }).done(function(data){
             c_obj.remove();
             toastr.success('Item deletado.', 'Sucesso', {timeOut: 6000});
@@ -185,7 +185,8 @@ manageData();
           rows = rows + '<td class="actions">\
                           <a href="#" data-id="'+value.id+'" data-toggle="modal" data-target="#edit-item">\
                           <img alt="Alterar" class="edit-item" src="../assets/icons/edit.png"></a>\
-                          <a href="../api/delete.php" data-id="'+value.id+'"><img class="remove-item" alt="Remover" src="../assets/icons/delete.png">\
+                          <a href="../api/delete.php?id='+value.id+' "data-id="'+value.id+'">\
+                          <img class="remove-item" alt="Remover" src="../assets/icons/delete.png">\
                           </a></td> ';
           rows = rows + '</td>';
           rows = rows + '</tr>';
