@@ -17,14 +17,12 @@ require 'db_config.php';
                      ".$post['preco_compra']."','
                      ".$post['preco_venda']."','
                      ".$post['quantidade']."','
-                     ".$post['unidade']."','
-                     ".$post['data_de_validade']."')";
+                     ".$post['unidade_medida']."','
+                     ".$post['data_validade']."')";
 
   $result = $mysqli->query($sql);
   $sql = "SELECT * FROM tbl_produtos Order by id desc LIMIT 1"; 
   $result = $mysqli->query($sql);
   $data = $result->fetch_assoc();
-
-echo json_encode($data);
 
 ?>

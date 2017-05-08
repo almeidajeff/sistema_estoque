@@ -25,6 +25,19 @@
         <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
     <![endif]-->
 
+    <!-- jQuery -->
+    <script src="../assets/js/jquery.min.js"></script>
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../assets/js/bootstrap.min.js"></script>
+
+    <!-- Paginator -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twbs-pagination/1.3.1/jquery.twbsPagination.min.js"></script>
+
+    <!-- Validator -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/1000hz-bootstrap-validator/0.11.5/validator.min.js"></script>
+
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+
 </head>
 
 <body>
@@ -97,10 +110,14 @@
                             <td>metros</td>
                             <td>17/05/2018</td>
                             <td class="actions">
+                                <a href="../api/update.php">
                                 <img alt="Alterar"
                                      src="../assets/icons/edit.png">
+                                </a>
+                                <a href="../api/delete.php">
                                 <img alt="Remover"
                                      src="../assets/icons/delete.png">
+                                </a>
                             </td>
                         </tr>
                     </tbody>
@@ -110,7 +127,16 @@
         <div>
             <button type="button" class="btn btn-success" data-toggle="modal" data-target="#create-item">Incluir Novo Item</button>
         </div>
+
+        <!-- Paginator -->
+        <div class="row">
+            <div class="col-lg-12">
+                <ul id="pagination" class="pagination-sm"></ul>
+            </div>
+        </div>
     </div>
+
+
     <!-- Create Item Modal -->
         <div class="modal fade" id="create-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
           <div class="modal-dialog" role="document">
@@ -182,8 +208,82 @@
 
           </div>
         </div>
-    <!-- End Modal -->
-    <!-- /.container -->
+    <!-- End Modal Create -->
+
+    <!-- Edit Item Modal -->
+        <div class="modal fade" id="edit-item" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+          <div class="modal-dialog" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+                <h4 class="modal-title" id="myModalLabel">Editar Item</h4>
+              </div>
+
+              <div class="modal-body">
+                    <form data-toggle="validator" action="api/update.php" method="put">
+                        <input type="hidden" name="id" class="edit-id">
+
+                        <div class="form-group">
+                            <label class="control-label" for="nome">Nome</label>
+                            <input type="text" name="nome" class="form-control" data-error="Por favor insira um Nome" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="descricao">Descrição:</label>
+                            <textarea name="descricao" class="form-control"></textarea>
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="codigo">Código:</label>
+                            <input type="text" name="codigo" class="form-control" data-error="Por favor insira um Código" required />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="preco_compra">Preço Compra:</label>
+                            <input type="text" name="preco_compra" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="preco_venda">Preço Venda:</label>
+                            <input type="text" name="preco_venda" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="quantidade">Quantidade:</label>
+                            <input type="text" name="quantidade" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="unidade">Unidade de medida:</label>
+                            <input type="text" name="unidade_medida" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <label class="control-label" for="data_de_validade">Data de validade:</label>
+                            <input type="text" name="data_validade" class="form-control" />
+                            <div class="help-block with-errors"></div>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn crud-submit-edit btn-success">Salvar</button>
+                        </div>
+
+                    </form>
+
+              </div>
+            </div>
+          </div>
+        </div>
+    <!-- End Modal Edit -->
+    
+    <!-- container -->
 
     <div class="container">
 
@@ -201,20 +301,17 @@
     </div>
     <!-- /.container -->
 
-    <!-- jQuery -->
-    <script src="../assets/js/jquery.js"></script>
-
     <script type="text/javascript">
-        var host = location.host
-        var path = location.pathname
-        var url = host + path;
+        //var host = location.host
+        //var path = location.pathname
+        var url = 'http://localhost/xampp/sistema_estoque/';
     </script>
     <!-- Ajax -->
     <script src="../assets/js/item_ajax.js"></script>
 
-    <!-- Bootstrap Core JavaScript -->
-    <script src="../assets/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+    
+
+   
 </body>
 
 </html>
